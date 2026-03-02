@@ -22,24 +22,8 @@ jobs:
       - name: Build EXE
         run: pyinstaller --onefile split_oversized_pdf_pages.py
 
-      - name: Upload EXE as artifact
+      - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
           name: pdf-splitter-windows
           path: dist/split_oversized_pdf_pages.exe
-```
-
----
-
-**Step 5: Download your .exe**
-1. Go to your repo → click **Actions** tab
-2. Click the latest workflow run
-3. Scroll down to **Artifacts**
-4. Download `pdf-splitter-windows` — it's a zip containing your `.exe`
-
----
-
-**Step 6: Use on government PC**
-Copy the `.exe` to a USB drive. On the government PC, just run:
-```
-split_oversized_pdf_pages.exe --input C:\path\to\pdfs --output C:\path\to\output
